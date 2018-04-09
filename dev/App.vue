@@ -1,16 +1,23 @@
 <template>
-  <div id="test">
-    vuejs-file-input manual testing
+  <div id='test'>
+    <h1>vuejs-file-input manual testing</h1>
+    <SFI :input-props='{ multiple: true }'>
+      <button type='button'>
+        Select some files
+      </button>
+    </SFI>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'test',
-  data () {
-    return {}
+  import SFI from '../src/skinnable-file-input'
+
+  export default {
+    components: { SFI },
+    data () {
+      return {}
+    }
   }
-}
 </script>
 
 <style>
