@@ -1,7 +1,7 @@
 {
   "name": "vuejs-file-input",
   "description": "A more powerful, flexible, and completely skinnable <input type=\"file\"> for Vue.js",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "author": "rnicholus <github@raynicholus.com>",
   "license": "MIT",
   "repository": "https://github.com/rnicholus/vuejs-file-input",
