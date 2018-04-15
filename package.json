@@ -8,6 +8,7 @@
   "scripts": {
     "build": "NODE_ENV=production webpack --progress --hide-modules",
     "build-skinnable": "npm run build && rm -rf dist/skinnable-file-input && mkdir dist/skinnable-file-input && cp dist/skinnableFileInput.* dist/skinnable-file-input/ && cp src/skinnable-file-input/{package.json,skinnable-file-input.vue,README.md} dist/skinnable-file-input/",
+    "publish-skinnable": "npm run build-skinnable && (cd dist/skinnable-file-input && npm publish)",
     "start": "NODE_ENV=development webpack-dev-server --hot --open --content-base dev/"
   },
   "bugs": {
