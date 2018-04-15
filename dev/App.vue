@@ -10,7 +10,7 @@
 </template>
 
 <script>
-  import SFI from '../src/skinnable-file-input'
+  import SFI from '../src/skinnable-file-input/skinnable-file-input'
 
   export default {
     components: { SFI },

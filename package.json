@@ -2,14 +2,18 @@
   "name": "vuejs-file-input",
   "description": "A more powerful, flexible, and completely skinnable <input type=\"file\"> for Vue.js",
   "version": "0.0.1",
-  "author": "rnicholus <github@raynicholus.com>",
+  "author": "Ray Nicholus <ray@raynicholus.com>",
   "license": "MIT",
   "repository": "https://github.com/rnicholus/vuejs-file-input",
   "scripts": {
-    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
-    "start": "cross-env NODE_ENV=development webpack-dev-server --hot --open --content-base dev/"
+    "build": "NODE_ENV=production webpack --progress --hide-modules",
+    "build-skinnable": "npm run build && rm -rf dist/skinnable-file-input && mkdir dist/skinnable-file-input && cp dist/skinnableFileInput.* dist/skinnable-file-input/ && cp src/skinnable-file-input/{package.json,skinnable-file-input.vue,README.md} dist/skinnable-file-input/",
+    "start": "NODE_ENV=development webpack-dev-server --hot --open --content-base dev/"
   },
-  "dependencies": {
+  "bugs": {
+    "url": "https://github.com/rnicholus/vuejs-file-input/issues"
+  },
+  "peerDependencies": {
     "vue": "^2.5.11"
   },
   "devDependencies": {
@@ -19,6 +23,7 @@
     "babel-preset-stage-3": "^6.24.1",
     "css-loader": "^0.28.7",
     "file-loader": "^1.1.4",
+    "vue": "^2.5.11",
     "vue-loader": "^13.0.5",
     "vue-template-compiler": "^2.4.4",
     "webpack": "^3.6.0",

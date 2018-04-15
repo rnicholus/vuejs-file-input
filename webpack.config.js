@@ -2,11 +2,14 @@ const path = require('path')
 const webpack = require('webpack')
 
 module.exports = {
-  entry: './dev/main.js',
+  entry: {
+    manualTest: './dev/main.js',
+    skinnableFileInput: './src/skinnable-file-input/skinnable-file-input.vue'
+  },
   output: {
-    path: path.resolve(__dirname, './dist'),
+    path: __dirname + '/dist',
     publicPath: '/dist/',
-    filename: 'build.js'
+    filename: '[name].js'
   },
   module: {
     rules: [
@@ -64,15 +67,6 @@ if (process.env.NODE_ENV === 'production') {
       'process.env': {
         NODE_ENV: '"production"'
       }
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
-      compress: {
-        warnings: false
-      }
-    }),
-    new webpack.LoaderOptionsPlugin({
-      minimize: true
     })
   ])
 }
