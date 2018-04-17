@@ -1,7 +1,7 @@
 <template>
   <SkinnableFileInput :container-class='containerClass'
                       :input-props='inputProps'
-                      :onChange='internalOnChange'
+                      :onChange='handleOnChange'
   >
     <slot></slot>
   </SkinnableFileInput>
@@ -12,11 +12,6 @@
 
   export default {
     components: { SkinnableFileInput },
-    data: function() {
-      return {
-        internalOnChange: this.handleOnChange
-      }
-    },
     methods: {
       handleOnChange: function(event) {
         const files = event.target.files
