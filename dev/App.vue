@@ -1,22 +1,27 @@
 <template>
   <div id='test'>
     <h1>vuejs-file-input manual testing</h1>
-    <SFI :input-props='{ multiple: true }'>
+    <VuejsFileInput :input-props='{ multiple: true }'
+                    :maxFiles='2'
+                    :on-change='onChange'
+    >
       <button type='button'>
         Select some files
       </button>
-    </SFI>
+    </VuejsFileInput>
   </div>
 </template>
 
 <script>
-  import SFI from '../src/skinnable-file-input/skinnable-file-input'
+  import VuejsFileInput from '../src/vuejs-file-input'
 
   export default {
-    components: { SFI },
-    data () {
-      return {}
-    }
+    components: { VuejsFileInput },
+    data: () => ({
+      onChange: event => {
+        console.log(event.valid, event.invalid)
+      }
+    })
   }
 </script>
 
