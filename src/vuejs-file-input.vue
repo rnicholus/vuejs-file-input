@@ -42,7 +42,7 @@
         type: Object
       },
       maxFiles: {
-        default: 0,
+        default: Infinity,
         type: Number
       },
       onChange: {
