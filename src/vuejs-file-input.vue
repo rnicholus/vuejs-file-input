@@ -1,6 +1,6 @@
 <template>
-  <SkinnableFileInput :container-class='containerClass'
-                      :input-props='inputProps'
+  <SkinnableFileInput :containerClass='containerClass'
+                      :inputProps='inputProps'
                       :onChange='handleOnChange'
   >
     <slot></slot>
