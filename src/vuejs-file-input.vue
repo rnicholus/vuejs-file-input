@@ -13,28 +13,28 @@
   export default {
     components: { SkinnableFileInput },
     data: function() {
-      const onChange = this.onChange
-      const maxFiles = this.maxFiles
-
       return {
-        internalOnChange: event => {
-          const files = event.target.files
+        internalOnChange: this.handleOnChange
+      }
+    },
+    methods: {
+      handleOnChange: function(event) {
+        const files = event.target.files
 
-          let invalid = []
-          let valid = []
+        let invalid = []
+        let valid = []
 
-          if (files.length > maxFiles) {
-            invalid = {
-              length: files.length,
-              tooMany: files
-            }
+        if (files.length > this.maxFiles) {
+          invalid = {
+            length: files.length,
+            tooMany: files
           }
-          else {
-            valid = files
-          }
-
-          onChange({ invalid, valid })
         }
+        else {
+          valid = files
+        }
+
+        this.onChange({ invalid, valid })
       }
     },
     props: {
