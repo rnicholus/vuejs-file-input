@@ -1,7 +1,7 @@
 <template>
   <SkinnableFileInput :containerClass='containerClass'
-                      :inputProps='inputProps'
-                      :onChange='handleOnChange'
+                      @change='handleOnChange'
+                      v-bind='inputProps'
   >
     <slot></slot>
   </SkinnableFileInput>
@@ -12,6 +12,13 @@
 
   export default {
     components: { SkinnableFileInput },
+    computed: {
+      inputProps: function() {
+        const { onChange, ...inputProps } = this.$attrs
+
+        return inputProps
+      }
+    },
     methods: {
       handleOnChange: function(event) {
         const files = event.target.files
@@ -29,19 +36,13 @@
           valid = files
         }
 
-        this.onChange({ invalid, valid })
+        this.$emit('change', { invalid, valid })
       }
     },
     props: {
-      inputProps: {
-        type: Object
-      },
       maxFiles: {
         default: Infinity,
         type: Number
-      },
-      onChange: {
-        type: Function
       },
     }
   }

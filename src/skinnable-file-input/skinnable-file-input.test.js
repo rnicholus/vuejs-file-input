@@ -25,22 +25,16 @@ describe('<SkinnableFileInput>', () => {
   })
 
   it('triggers passed onChange handler when a file is selected', () => {
-    const onChange = jest.fn()
-    const wrapper = shallow(SkinnableFileInput, {
-      propsData: { onChange }
-    })
+    const wrapper = shallow(SkinnableFileInput)
 
-    wrapper.find('input[type="file"]').trigger('change', { data: 'foo' })
-    expect(onChange).toHaveBeenCalledTimes(1)
-    expect(onChange.mock.calls[0][0].data).toBe('foo')
+    wrapper.vm.handleChange({ data: 'foo' })
+    expect(wrapper.emitted().change[0]).toEqual([{ data: 'foo' }])
   })
 
   it('passes appropriate properties to the underlying file input', () => {
     const wrapper = shallow(SkinnableFileInput, {
-      propsData: {
-        inputProps: {
-          multiple: true,
-        }
+      attrs: {
+        multiple: true,
       }
     })
 

@@ -3,7 +3,7 @@
        :style='containerStyle'
   >
     <slot></slot>
-    <input @change='onChange'
+    <input @change='handleChange'
            :style='inputStyle'
            type='file'
            v-bind='inputProps'
@@ -13,6 +13,13 @@
 
 <script>
   export default {
+    computed: {
+      inputProps: function() {
+        const { onChange, ...inputProps } = this.$attrs
+
+        return inputProps
+      }
+    },
     data: () => ({
       containerStyle: {
         display: 'inline-block',
@@ -31,18 +38,15 @@
         width: '100%'
       }
     }),
+    methods: {
+      handleChange: function(event) {
+        this.$emit('change', event)
+      }
+    },
     props: {
       containerClass: {
         default: '',
         type: String,
-      },
-      inputProps: {
-        default: () => ({}),
-        type: Object
-      },
-      onChange: {
-        default: () => {},
-        type: Function
       }
     }
   }

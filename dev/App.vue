@@ -1,8 +1,8 @@
 <template>
   <div id='test'>
     <h1>vuejs-file-input manual testing</h1>
-    <VuejsFileInput :inputProps='{ multiple: true }'
-                    :onChange='onChange'
+    <VuejsFileInput multiple='true'
+                    @change='onChange'
                     :maxFiles='2'
     >
       <button type='button'>
